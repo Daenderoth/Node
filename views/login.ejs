@@ -1,0 +1,39 @@
+<%include partials/head.ejs%>
+<%include partials/navbar.ejs%>
+<script>
+    $(function() {
+        $("form[name='login']").validate({
+            rules: {
+                username: "required",
+                password: {
+                    required: true
+                }
+            },
+            messages: {
+                name: "Please enter a name!",
+                password: "Please provide a password!",
+            },
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+    })
+</script>
+<body>
+    <div class="login-form">
+        <h1>Login Form</h1>
+    <form method="post" name='login' action="/login" validate>
+        <div class="form-field">
+            <label for="username">Username</label>
+            <input class="input" id="user" name="username" type="text" value="" />
+        </div>
+        <div class="form-field">
+            <label for="password">Password</label>
+            <input class="input" id="password" name="password" type="password" value="" />
+        </div>
+        <div class="form-actions">
+            <button class="btn btn-success submitButton" type="submit">Login</button>
+        </div>
+    </form>
+    </div>
+</body>
