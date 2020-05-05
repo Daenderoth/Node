@@ -31,12 +31,14 @@ router.post('/', function(req, res, next) {
         console.log("user", result);
         if(!result){
             error= "Wrong username or password"
+            res.render('login', { title: 'Login' });
         }else{
             console.log("success");
             ssn.user = req.body.username;
+            res.render('index', { title: 'Express' , session: req.session, user:username});
         }
     })
-    res.render('index', { title: 'Express' , session: req.session, user:username});
+    
 });
 
 module.exports = router;
